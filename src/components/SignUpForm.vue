@@ -29,11 +29,20 @@ export default {
     async sendData(event) {
       event.preventDefault();
       try {
-        await axiosInstance.post("/api/auth/signup", {
+        const response = await axiosInstance.post("/api/auth/signup", {
           username: this.username,
           email: this.email,
           password: this.password,
         });
+
+        const { username, id, email, accessToken } = response.data;
+
+        this.$store.commit("setUser", {
+          id,
+          username,
+          email,
+        });
+        this.$store.commit("setAccessToken", accessToken);
 
         await this.$router.push("/cost");
       } catch (e) {

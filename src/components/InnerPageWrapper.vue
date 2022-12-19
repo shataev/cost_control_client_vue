@@ -18,7 +18,7 @@
       </v-list>
       <template v-slot:append>
         <div class="pa-2">
-          <v-btn block>Logout</v-btn>
+          <v-btn block @click="onSignOut">Logout</v-btn>
         </div>
       </template>
     </v-navigation-drawer>
@@ -29,6 +29,9 @@
 </template>
 
 <script>
+import axios from "axios";
+import { axiosInstance } from "@/api/axios";
+
 export default {
   name: "InnerPageWrapper",
   data() {
@@ -43,6 +46,11 @@ export default {
   methods: {
     toggleMenu() {
       this.menuVisibility = !this.menuVisibility;
+    },
+    onSignOut() {
+      this.$store.commit("setAccessToken", null);
+
+      axiosInstance.get("/api/auth/signout");
     },
   },
   computed: {

@@ -1,26 +1,28 @@
 import Vuex from "vuex";
 import Vue from "vue";
 
+import getters from "@/store/getters";
+
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
-    profile: {
+    user: {
       username: null,
       email: null,
       id: null,
     },
     auth: {
-      isAuthenticated: false,
       accessToken: null,
     },
   },
+  getters,
   mutations: {
-    setIsAuthenticated({ auth }, isAuthenticated) {
-      auth.isAuthenticated = isAuthenticated;
-    },
     setAccessToken({ auth }, accessToken) {
       auth.accessToken = accessToken;
+    },
+    setUser(state, userData) {
+      state.user = { ...userData };
     },
   },
 });
