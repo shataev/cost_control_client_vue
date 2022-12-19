@@ -1,7 +1,7 @@
 <template>
   <div class="auth-container">
     <v-tabs v-model="tab" centered>
-      <v-tab v-for="item in items" :key="item.label">
+      <v-tab v-for="item in items" :key="item.label" :to="item.path" link>
         {{ item.label }}
       </v-tab>
     </v-tabs>
@@ -24,11 +24,6 @@ export default {
         { label: "Sign up", path: "/auth/signup" },
       ],
     };
-  },
-  watch: {
-    tab(newTab) {
-      this.$router.push(this.items[newTab].path);
-    },
   },
   computed: {},
 };

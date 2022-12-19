@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import { axiosInstance } from "@/api/axios";
 
 export default {
   name: "SignInForm",
@@ -21,7 +21,7 @@ export default {
     async sendData(event) {
       event.preventDefault();
       try {
-        await axios.post(import.meta.env.VITE_API_HOST + "/api/auth/signin", {
+        await axiosInstance.post("/api/auth/signin", {
           email: this.email,
           password: this.password,
         });

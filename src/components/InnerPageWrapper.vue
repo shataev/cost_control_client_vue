@@ -2,7 +2,7 @@
   <div>
     <v-app-bar app>
       <v-app-bar-nav-icon @click="toggleMenu"></v-app-bar-nav-icon>
-      <v-toolbar-title>Add Cost</v-toolbar-title>
+      <v-toolbar-title>{{ pageTitle }}</v-toolbar-title>
     </v-app-bar>
     <v-navigation-drawer v-model="menuVisibility" temporary app>
       <v-list nav>
@@ -43,6 +43,13 @@ export default {
   methods: {
     toggleMenu() {
       this.menuVisibility = !this.menuVisibility;
+    },
+  },
+  computed: {
+    pageTitle() {
+      const currentRoute = this.$route;
+
+      return currentRoute.meta.title;
     },
   },
 };
