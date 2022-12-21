@@ -90,6 +90,7 @@ router.beforeEach((to, from, next) => {
         .then((response) => {
           const { accessToken } = response.data;
 
+          // TODO записывать данные юзера в стор
           store.commit("setAccessToken", accessToken);
 
           next();

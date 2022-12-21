@@ -4,7 +4,7 @@ import Vue from "vue";
 import getters from "@/store/getters";
 
 Vue.use(Vuex);
-
+// TODO разбить на модули
 const store = new Vuex.Store({
   state: {
     user: {

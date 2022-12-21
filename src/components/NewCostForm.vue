@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 import { axiosInstance } from "@/api/axios";
 
 export default {
@@ -23,6 +25,9 @@ export default {
       product: "",
     };
   },
+  computed: {
+    ...mapGetters(["userId"]),
+  },
   methods: {
     async sendData(event) {
       event.preventDefault();
@@ -31,6 +36,7 @@ export default {
           amount: this.amount,
           product: this.product,
           comment: this.comment,
+          userId: this.userId,
         });
 
         await this.$router.push("/costs");
