@@ -21,6 +21,7 @@
 
 <script>
 import { axiosInstance } from "@/api/axios";
+import { mapGetters } from "vuex";
 
 export default {
   name: "CostsList",
@@ -29,8 +30,16 @@ export default {
       costs: [],
     };
   },
+  computed: {
+    ...mapGetters(["userId"]),
+  },
   async mounted() {
-    const costs = await axiosInstance.get("/api/costs");
+    console.log(this.userId);
+    const costs = await axiosInstance.get("/api/costs", {
+      params: {
+        userId: this.userId,
+      },
+    });
 
     this.costs = costs.data;
   },

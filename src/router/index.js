@@ -88,10 +88,15 @@ router.beforeEach((to, from, next) => {
           },
         })
         .then((response) => {
-          const { accessToken } = response.data;
+          const { accessToken, id: userId, email, username } = response.data;
 
-          // TODO записывать данные юзера в стор
+          // В случае успеха записываем токен и данные пользователя в стор
           store.commit("setAccessToken", accessToken);
+          store.commit("setUser", {
+            userId,
+            email,
+            username,
+          });
 
           next();
         })
