@@ -8,7 +8,7 @@ import Components from "unplugin-vue-components/vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/cost-control/",
+  base: "/cost_control_client_vue/",
   plugins: [
     vue2(),
     legacy({
