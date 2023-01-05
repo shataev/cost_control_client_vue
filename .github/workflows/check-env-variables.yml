@@ -14,6 +14,6 @@ jobs:
       - name: check env variables
         run: |
           echo "Let's check our environment variables"
-          echo "VITE_API_HOST is $VITE_API_HOST"
+          echo "VITE_API_HOST is ${{secrets.VITE_API_HOST}}"
           echo "VITE_VERIFICATION_CODE is $VITE_VERIFICATION_CODE"
 
