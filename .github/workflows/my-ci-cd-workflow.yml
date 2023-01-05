@@ -1,6 +1,9 @@
 name: Build project
 run-name: ${{ github.actor }} is building project 🚀
-on: [push]
+on:
+  push:
+    branches:
+      - github-actions-learning
 jobs:
   build:
     runs-on: ubuntu-latest
