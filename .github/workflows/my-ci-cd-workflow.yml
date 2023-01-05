@@ -1,5 +1,5 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+name: Build project
+run-name: ${{ github.actor }} is building project 🚀
 on: [push]
 jobs:
   build:
@@ -25,5 +25,5 @@ jobs:
       - name: npm build
         run: |
           echo "Start building"
-          npm build
+          npm run build
           echo "Project built"
