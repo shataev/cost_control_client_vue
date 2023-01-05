@@ -27,6 +27,11 @@ jobs:
 
       - name: npm build
         run: |
-          echo "Start building"
+          echo "Start building with VITE_API_HOST=${{secrets.VITE_API_HOST}} and VITE_VERIFICATION_CODE:${{secrets.VITE_VERIFICATION_CODE}}"
+          echo "VITE_API_HOST=${{secrets.VITE_API_HOST}} and VITE_VERIFICATION_CODE:${{secrets.VITE_VERIFICATION_CODE}}"
+          echo "VITE_VERIFICATION_CODE=${{secrets.VITE_VERIFICATION_CODE}}"
           npm run build
           echo "Project built"
+        env:
+          VITE_API_HOST: ${{secrets.VITE_API_HOST}}
+          VITE_VERIFICATION_CODE: ${{secrets.VITE_VERIFICATION_CODE}}
