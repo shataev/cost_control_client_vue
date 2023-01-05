@@ -8,12 +8,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: check env vaiables
+      - name: check env variables
         run: |
           echo "Let's check our environment variables"
           echo "VITE_API_HOST is $VITE_API_HOST"
-          echo "VITE_VERIFICATION_CODE is VITE_VERIFICATION_CODE"
-
+          echo "VITE_VERIFICATION_CODE is $VITE_VERIFICATION_CODE"
         env:
           VITE_API_HOST: ${{secrets.VITE_API_HOST}}
           VITE_VERIFICATION_CODE: ${{secrets.VITE_VERIFICATION_CODE}}
