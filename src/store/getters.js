@@ -3,7 +3,7 @@ const getters = {
     return Boolean(auth.accessToken);
   },
   userId({ user }) {
-    return user.userId;
+    return user.id;
   },
 };
 

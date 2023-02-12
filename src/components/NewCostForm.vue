@@ -31,6 +31,7 @@ export default {
   methods: {
     async sendData(event) {
       event.preventDefault();
+
       try {
         await axiosInstance.post("/api/cost", {
           amount: this.amount,
